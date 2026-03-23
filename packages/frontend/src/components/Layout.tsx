@@ -8,6 +8,7 @@ import {
   Drawer,
   List,
   ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
   useTheme,
@@ -87,18 +88,20 @@ export default function Layout({ children }: LayoutProps) {
         <List>
           {menuItems.map((item) => (
             <ListItem
-              button
               key={item.text}
+              disablePadding
               sx={{
                 '&:hover': {
                   backgroundColor: 'rgba(59, 130, 246, 0.1)',
                 },
               }}
             >
-              <ListItemIcon sx={{ color: 'primary.main' }}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemButton>
+                <ListItemIcon sx={{ color: 'primary.main' }}>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
             </ListItem>
           ))}
         </List>
